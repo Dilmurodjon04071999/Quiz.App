@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Master</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- Start Screen -->
+        <section id="start-screen" class="screen active">
+            <h1 class="logo">Quiz Master</h1>
+            
+            <div class="card high-scores-card">
+                <h2>🏆 Hall of Fame</h2>
+                <ul id="high-scores-list">
+                    <!-- High scores will be injected here -->
+                    <li>No scores yet!</li>
+                </ul>
+            </div>
+
+            <div class="card settings-card">
+                <div class="form-group">
+                    <label for="username">Enter your Name</label>
+                    <input type="text" id="username" placeholder="Super Player" autocomplete="off">
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category">
+                            <option value="">Any Category</option>
+                            <!-- Categories will be injected here -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="difficulty">Difficulty</label>
+                        <select id="difficulty">
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="amount">Questions</label>
+                        <input type="number" id="amount" value="10" min="1" max="50">
+                    </div>
+                    <div class="form-group">
+                        <label for="timer">Time per Question</label>
+                        <select id="timer">
+                            <option value="5">5 Seconds</option>
+                            <option value="10" selected>10 Seconds</option>
+                            <option value="20">20 Seconds</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button id="start-btn" class="btn primary">Start Quiz</button>
+            </div>
+        </section>
+
+        <!-- Game Screen -->
+        <section id="game-screen" class="screen hidden">
+            <div class="hud">
+                <div class="hud-item">
+                    <span class="hud-label">Question</span>
+                    <span id="question-counter" class="hud-value">1/10</span>
+                </div>
+                <div class="hud-item">
+                    <span class="hud-label">Score</span>
+                    <span id="score" class="hud-value">0</span>
+                </div>
+                <div class="hud-item">
+                     <div class="timer-circle" id="timer-display">10</div>
+                </div>
+            </div>
+
+            <div class="question-container">
+                <h2 id="question-text">Loading question...</h2>
+            </div>
+
+            <div id="options-container" class="options-grid">
+                <!-- Options will be injected here -->
+            </div>
+
+            <button id="next-btn" class="btn secondary hidden">Next Question</button>
+        </section>
+
+        <!-- End Screen -->
+        <section id="end-screen" class="screen hidden">
+            <h1 class="title">Quiz Completed!</h1>
+            <p id="end-message" class="subtitle">Great job!</p>
+            
+            <div class="final-score-box">
+                <span class="score-label">Final Score</span>
+                <span id="final-score" class="score-value">0</span>
+            </div>
+
+            <div class="actions">
+                <button id="play-again-btn" class="btn primary">Play Again</button>
+                <button id="home-btn" class="btn secondary">Home</button>
+            </div>
+        </section>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
